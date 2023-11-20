@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">MyGithubUser</string>
+    <string name="user_image">User image</string>
+    <string name="search_user">Search user</string>
+    <string name="followers">Followers: %d</string>
+    <string name="following">Following: %d</string>
+    <string name="home_page">Home</string>
+    <string name="favorite_page">Favorite</string>
+    <string name="about_page">About Me</string>
+    <string name="detail_user">Detail User</string>
+    <string name="about_name">Abdullah Hali Saputra</string>
+    <string name="about_photo">https://dicoding-web-img.sgp1.cdn.digitaloceanspaces.com/small/avatar/dos:77f5f912584d8366f848db42e5f2ba9920230901193047.png</string>
+    <string name="about_email">abdullahhalis12@gmail.com</string>
+    <string name="about_github">https://github.com/abdullahhalis</string>
+    <string name="about_linkedin">https://www.linkedin.com/in/abdullahhalis/</string>
+    <string name="splash_screen">Splash Screen</string>
+    <string name="back">Back</string>
+    <string name="no_data">There is no data</string>
+</resources>
