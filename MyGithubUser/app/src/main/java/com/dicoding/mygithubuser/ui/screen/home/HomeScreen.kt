@@ -74,16 +74,29 @@ fun HomeContent(
             query = query,
             onQueryChange = onQueryChange
         )
-        LazyColumn(
-            modifier = Modifier.testTag("listUser"),
-        ){
-            items(listUser, key = {it.login} ) { user ->
-                ItemUser(
-                    photoUrl = user.avatarUrl,
-                    username = user.login,
-                    onClick = { navigateToDetail(user.login) }
-                )
-            }
+        if (listUser.isNotEmpty()) {
+            ListUsers(listUser = listUser, navigateToDetail = navigateToDetail)
+        } else {
+            ErrorScreen()
+        }
+    }
+}
+
+@Composable
+fun ListUsers(
+    listUser: List<ItemsItem>,
+    modifier: Modifier = Modifier,
+    navigateToDetail: (String) -> Unit
+) {
+    LazyColumn(
+        modifier = Modifier.testTag("listUser"),
+    ){
+        items(listUser, key = {it.id} ) { user ->
+            ItemUser(
+                photoUrl = user.avatarUrl,
+                username = user.login,
+                onClick = { navigateToDetail(user.login) }
+            )
         }
     }
 }

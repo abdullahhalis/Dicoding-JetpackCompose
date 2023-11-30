@@ -16,7 +16,7 @@ android {
         versionCode = 1
         versionName = "1.0"
         buildConfigField("String", "BASE_URL", "\"https://api.github.com\"")
-        buildConfigField("String","TOKEN","\"token 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\"")
+        buildConfigField("String","TOKEN","\"token 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\"")
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -66,7 +66,7 @@ dependencies {
 
     implementation ("androidx.compose.runtime:runtime-livedata:1.5.4")
 
-    implementation ("androidx.navigation:navigation-compose:2.7.5")//navigation
+    implementation ("androidx.navigation:navigation-compose:2.6.0")//navigation
 
     //searchbar
     implementation("androidx.compose.material3:material3:1.2.0-alpha11")

@@ -2,13 +2,23 @@ package com.dicoding.mygithubuser
 
 import androidx.activity.ComponentActivity
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.test.assert
 import androidx.compose.ui.test.assertIsDisplayed
+import androidx.compose.ui.test.assertTextEquals
+import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.isDisplayed
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
+import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.onChildAt
+import androidx.compose.ui.test.onLast
 import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithTag
+import androidx.compose.ui.test.onRoot
+import androidx.compose.ui.test.onSibling
 import androidx.compose.ui.test.performClick
+import androidx.compose.ui.test.performTextClearance
+import androidx.compose.ui.test.performTextInput
+import androidx.compose.ui.test.printToLog
 import androidx.navigation.compose.ComposeNavigator
 import androidx.navigation.testing.TestNavHostController
 import androidx.test.espresso.IdlingRegistry
@@ -55,6 +65,15 @@ class GithubUserAppTest {
         navController.assertCurrentRouteName(Screen.About.route)
         composeTestRule.onNodeWithStringId(R.string.home_page).performClick()
         navController.assertCurrentRouteName(Screen.Home.route)
+    }
+
+    @Test
+    fun search_User() {
+        composeTestRule.onRoot(useUnmergedTree = true).printToLog("currentLabelExists")
+        composeTestRule.onNodeWithContentDescription("Search").performTextClearance()
+        composeTestRule.onNodeWithContentDescription("Search").performTextInput("abdullahhalis")
+        composeTestRule.onNodeWithContentDescription("Search").assertTextEquals("abdullahhalis")
+        composeTestRule.onNodeWithTag("listUser").onChildAt(0).assert(hasText("abdullahhalis"))
     }
 
     @Test
